@@ -8,6 +8,10 @@ app.use(cors());
 app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.get("/", (req, res) => {
+  res.send("Vive Photography API is running 🚀");
+});
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'images/');
